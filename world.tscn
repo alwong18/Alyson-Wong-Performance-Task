@@ -10,3 +10,5 @@ position = Vector2(0, -11)
 position = Vector2(359, -23)
 
 [node name="Enemy" parent="." instance=ExtResource("2_hlnja")]
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
