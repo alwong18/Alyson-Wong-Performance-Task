@@ -1,10 +1,9 @@
 extends Area2D
 
 @export var speed = 400
-var velocity
 
 func _process(delta):
-	velocity = Vector2.ZERO
+	var velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
@@ -14,5 +13,10 @@ func _process(delta):
 		velocity.x -= 1
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
-		
+	
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+	
 	position += velocity * delta
+	
+	
